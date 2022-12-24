@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="styles.css">
+	<body>
+		<!-- HTML code -->
+	<button id="start-button">Start countdown</button>
+	<!--<div id="countdown">
+	<span class="countdown-element" id="days"></span> days
+	<span class="countdown-element" id="hours"></span> hours
+	<span class="countdown-element" id="minutes"></span> minutes
+	<span class="countdown-element" id="seconds"></span> seconds
+	</div>-->
+	<div class="container" id="container">
+		<div class="countdown-element" id="days-element">
+			<span id="days"></span> days
+		</div>
+		<div class="countdown-element" id="hours-element">
+			<span id="hours"></span> hours
+		</div>
+		<div class="countdown-element" id="minutes-element">
+			<span id="minutes"></span> minutes
+		</div>
+		<div class="countdown-element" id="seconds-element">
+			<span id="seconds"></span> seconds
+		</div>
+	</div>
+  <div class="happening-div">
+    <h5>What's happening here?</h5>
+    <ul>
+      <li>The Days, Hours and Minutes have reached 0</li>
+      <li>They disapper when the count down reaches 5 seconds left</li>
+      <li>The seconds count down becomes bigger when the other values disapper</li>
+      <li>Plus others you may notice</li>
+    </ul>
+  </div>
+  <div class="linkdivs">
+    <a class="alink" href="file:///G:/My%20Drive/New%20portfolio/Count%20down/index.html">Go back to the count down</a>
+  </div>
+
+<!-- JavaScript code -->
+<script>
+  // Set the date we're counting down to (10 seconds in the future)
+  var countDownDate;
+
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+    if (countDownDate) {
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Output the result in an element with id="countdown"
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+      // Check if days, hours, and minutes should be hidden
+      if (days == 0 && hours == 0 && minutes == 0 && seconds <= 5) {
+        document.getElementById("days-element").style.display = "none";
+        document.getElementById("hours-element").style.display = "none";
+        document.getElementById("minutes-element").style.display = "none";
+        document.querySelector("#seconds-element").style.fontSize = "100px";
+      }
+
+      // If the count down is over, write some text
+      if (distance <= 0) {
+        clearInterval(x);
+        document.getElementById("container").innerHTML = "Timer has ended";
+		document.getElementById("container").classList.add("expired");
+      }
+    }
+  }, 1000);
+
+  // Start the countdown when the start button is clicked
+  document.getElementById("start-button").addEventListener("click", function() {
+    // Set the countdown date to 10 seconds in the future
+    countDownDate = new Date().getTime() + 10000;
+
+    // Show the days, hours, and minutes elements
+    document.getElementById("days-element").style.display = "inline";
+    document.getElementById("hours-element").style.display = "inline";
+    document.getElementById("minutes-element").style.display = "inline";
+  });
+</script>
+
+	</body>
+</html>
+
+

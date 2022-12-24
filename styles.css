@@ -1,0 +1,102 @@
+body {
+    background: linear-gradient(to right, #1e1e1e, #2e2e2e, #3e3e3e);
+}
+
+.container {
+	font-size: 56px;
+	font-weight: bold;
+	color: #000;
+	background: linear-gradient(to right, #ff0000, #ffff00, #00ff00);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	align-items: center;
+	height: 60vh;
+	justify-content: center;
+	display: flex;
+	margin-bottom: 0;
+  }
+  
+  #countdown span {
+	padding: 0 10px;
+}
+
+.countdown-element {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+#countdown .countdown-element {
+	display: inline-block;
+	margin-right: 10px;
+	transition: all 0.5s ease-in-out;
+  }
+  
+  #countdown #seconds-element {
+	font-size: 48px;
+	transition: font-size 0.5s ease-in-out;
+}
+
+
+#container.expired {
+	animation: bounce 0.5s infinite;
+  }
+  
+  @keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+	  transform: translateY(0);
+	}
+	40% {
+	  transform: translateY(-30px);
+	}
+	60% {
+	  transform: translateY(-15px);
+	}
+}
+
+.linkdivs {
+	justify-content: center;
+	display: flex;
+	width: 100%;
+}
+
+.alink{
+	color: white;
+	text-decoration: none;
+	border: none;
+	background-color: transparent;
+	transition: transform 0.3s;
+	transform: translateX(0);
+  }
+  
+.alink:hover {
+	transform: translateX(5px);
+}
+
+button{
+	background-color: #4e4ba8;
+	color: white;
+	padding: 20px;
+}
+
+.happening-div{
+	border: 2px solid white;
+	box-sizing: border-box;
+	width: fit-content;
+	border-radius: 5px;
+	color: #00ff00;
+}
+
+.happening-div h5{
+	text-align: center;
+}
+
+.happening-div ul li{
+	padding-right: 10px;
+}
+
+@media (max-width: 900px) {
+	.container {
+		font-size: 25px;
+		height: 55vh;
+	}
+}
